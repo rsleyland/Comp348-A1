@@ -1,7 +1,0 @@
-second_half(List,Output):- length(List,N), Half is N/2, half(List, Half, Output).
-
-%half([_],_,[]). %if only 1 element, return empty list
-%half([_,B],_,[B]). % if only 2 elements, return second element
-half(List,N,List):- length(List,Length), Length=< N.
-half([_|T],N,List):-length([_|T],Length), Length > N, half(T,N,List).
-
