@@ -39,7 +39,7 @@ public class driver {
 		employees.stream().sorted((o1,o2) -> { 
 			int res =  o1.getLastname().compareToIgnoreCase(o2.getLastname());
 			 if (res != 0)
-               return res;
+               			return res;
 			 return o1.getFirstname().compareToIgnoreCase(o2.getFirstname());
 		}).forEach(System.out::println);
 		
