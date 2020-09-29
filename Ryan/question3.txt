@@ -1,0 +1,20 @@
+---------- Question 3 ----------
+
+1) syntax error - Food has capital 'F' therefore is a variable not predicate
+2) Bread = soup (atom "soup" assigned to variable "Bread")
+3) Bread = Soup (variable assigned to variable)
+4) false - X = salad notequal X = milk
+5) Y = manager(X)
+6) X = healthyFood(bread), Y = drink(milk)
+7) false - list cannot unified with single predicate
+8) X = eat([]), Y = drink(milk), Z = []
+9) X = 1, Z = b
+10) A = french(jean), B = scottish(joe)
+11) X = healthyFood(bread), Y = drink(water)
+12) H = a, T = [b, c]
+13) false - arity not matching
+14) false - Y = bread notequal Y = egg
+15) X = jack, Y = cook(egg, oil), Time = Evening
+16) X = s(g), Y = t(k)
+17) false - C = Z notequal C = L*M & D = x notequal D = 17
+18) false - [H|T] notequal b, b is not a list

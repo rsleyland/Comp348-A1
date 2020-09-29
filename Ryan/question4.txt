@@ -1,0 +1,63 @@
+---------- Question 4 ----------
+
+1) Ground query - True
+            field(hit_transfer, engineering)
+            course(hit_transfer, mechanical)
+            field(mechanical, engineering)
+            true
+2) Non-ground query - X = 10
+            lab_number(fine_arts, 10)
+3) Ground query - false
+            course(computer, Z) no matches
+            field(computer, literature) false
+4) Non-ground query -
+            X = hit-transfer, Y = mechanical
+            X = web-design, Y = computer
+            X = design-methods, Y = fine-arts ...
+5) Ground query - True
+            student(adrian, web_design) true
+6) Ground query - True
+          student(anna, engineering)
+          field(mechanical, engineering)
+          course(hit_transfer, mechanical)
+          student(anna, engineering) true
+7) Non-ground query -
+          student(X, engineering)
+          field(Z,engineering), student (X, Z)
+          field(hit_transfer,engineering)
+          course(hit_transfer,Z), field(Z,engineering)
+          course(hit_transfer,mechanical)
+          X = anna
+          ...
+          X=daniel
+          X=adrian
+8) Ground query - False
+          no match for course(fine-arts,_)
+9) Non-ground query -
+          X = engineering
+          X = engineering
+          X = art
+          X = social
+          X = business
+          will repeat because of (field(X,Y):-)
+10) Non-ground query - False
+          first atoms in field() facts don't match any second atoms of
+          lab_number
+11) Non-ground query -
+          X = mechanical
+          Y = engineering
+          X = hit_transfer
+          Y = engineering
+12) Non-ground query -
+          student(anna,hit_transfer)
+          field(Z, hit-transfer), student(anna,Z) Z = mechanical
+          X = anna , cut
+          student(anna,_) X = anna
+13) Non-ground query -
+          student(anna), student(anna,_)
+          X = anna, cut (ends procedure)
+14) Non-ground query -
+          the only course without a student is biology
+          prolog will iterate through all possible course and not students
+          combinations
+          X = biology
