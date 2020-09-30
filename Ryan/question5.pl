@@ -45,7 +45,8 @@ size([_|T],N):- size(T,N1), N is N1+1.
 team_size(N):-
   findall(X,teammember(X,_),L), size(L,N).
 
-%return all courses taken by the whole team
+%return all courses taken by the whole team - will contain duplicates as next query is to remove duplicates using sort
+$could pass through list_to_set to remove dupes
 list_all_classes(L) :- findall(X,student(_,X),L).
 
 %return previous list without duplicates using sort/2
