@@ -55,5 +55,19 @@ public class EmployeeGroups {
                         "\n\tcount: " + y.getCount() +
                         "\n\tAverage Salary: " + String.format("%.2f", y.getAverage())
                 ));
+        
+        System.out.println();
+        System.out.println("----Employees Statistics----");
+        Arrays.stream(employees).collect(
+                Collectors.groupingBy(
+                        Employee::getClass,
+                        Collectors.summarizingDouble(x -> x.getSalary().doubleValue())
+                ))
+                .forEach((x, y) -> System.out.println(
+                        "Range: " + x + "." +
+                                "\nStatistics:" +
+                                "\n\tcount: " + y.getCount() +
+                                "\n\tAverage Salary: " + String.format("%.2f", y.getAverage())
+                ));
     }
 }
