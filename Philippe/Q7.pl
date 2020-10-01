@@ -58,6 +58,3 @@ circuit(A, B, C, D, Out) :-
 % 2. Write the query
 ?- circuit(0,1,0,1,Out)
   Out = 5
-
-% 3. Explain
-% You follow the schema with the different step and see if at the end you finish at S1, the final state of the Finite State Machine
