@@ -23,7 +23,7 @@ student(ryan, phys284, "Introduction to Astronomy").
 
 
 %return list of courses taken by each person
-list_courses_student(X,L, L1):-
+list_courses_student(X,L):-
   teammember(X,_), findall(Y,student(X,Y,_),L).
 
 %return size of team
