@@ -27,10 +27,10 @@ list_courses_student(X,L):-
   teammember(X,_), findall(Y,student(X,Y),L).
 
 %return size of team
-size([],0).
-size([_|T],N):- size(T,N1), N is N1+1.
+//size([],0).
+//size([_|T],N):- size(T,N1), N is N1+1.
 team_size(N):-
-  findall(X,teammember(X,_),L), size(L,N).
+  findall(X,teammember(X,_),L), length(L,N).
 
 %return all unique courses taken by the team
 list_all_classes(L1) :- findall(X,student(_,X),L), list_to_set(L,L1).
