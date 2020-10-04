@@ -4,6 +4,13 @@ import java.math.BigDecimal;
 public class Employee implements Person {
 	//instance variables
 	private String id = "", firstname = "", lastname = "", salary ="";
+	//public enum salaryRanges {
+	//	LESS25000,
+	//	BETWEEN25000_40000,
+	//	BETWEEN40000_70000,
+	//	OVER70000
+	//}
+	
 	//parameterized constructor
 	Employee(String id, String fn, String ln, String salary){
 		this.id = id; this.firstname = fn; this.lastname = ln; this.salary = salary;
@@ -68,5 +75,17 @@ public class Employee implements Person {
 		else if (bdSalary.compareTo(BigDecimal.valueOf(40000))>=0 && bdSalary.compareTo(BigDecimal.valueOf(70000))<0) return SalaryRange.from40to70;
 		else return SalaryRange.more70;
 	}
+	
+	// public salaryRanges getSalaryRange() {
+        //	BigDecimal salary = getSalary();
+        //	if (salary.compareTo(BigDecimal.valueOf(25_000)) < 0)
+        //    		return salaryRanges.LESS25000;
+        //	else if (salary.compareTo(BigDecimal.valueOf(40_000)) < 0)
+        //    		return salaryRanges.BETWEEN25000_40000;
+        //	else if (salary.compareTo(BigDecimal.valueOf(70_000)) < 0)
+        //    		return salaryRanges.BETWEEN40000_70000;
+        //	else
+        //    		return salaryRanges.OVER70000;
+    }
 		
 }
