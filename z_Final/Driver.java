@@ -97,8 +97,7 @@ public class Driver {
 		//		Collectors.summarizingDouble(x -> x.getSalary().doubleValue())
 		//	))
 		//	.forEach((x, y) -> System.out.println(
-		//		"Range: " + x + "." +
-		//			"\nStatistics:" +
+		//			"Statistics:" +
 		//			"\n\tcount: " + y.getCount() +
 		//			"\n\tAverage Salary: " + String.format("%.2f", y.getAverage())
 		//	));
