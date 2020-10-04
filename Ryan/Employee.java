@@ -42,6 +42,16 @@ public class Employee implements Person {
 	//splits up csv strings and checks for unwanted characters - return employee object created for string splits
 	public static Person parse(String str) {
 		String[] splits = str.split(",");
+		if(splits.length<4) {
+			System.out.println("Error found when parsing file - missing field.\nSystem will now close");
+			System.exit(0);
+		}
+		for(String s : splits) {
+			if(s.isEmpty()||s==null) {
+				System.out.println("Error found when parsing file - missing field.\nSystem will now close");
+				System.exit(0);
+			}
+		}
 		for(int a=0; a<splits.length; a++) {
 			if(splits[a].charAt(0)=='"' || splits[a].charAt(0)=='.') {
 				splits[a] = splits[a].substring(1);
@@ -60,5 +70,5 @@ public class Employee implements Person {
 		else if (bdSalary.compareTo(BigDecimal.valueOf(40000))>=0 && bdSalary.compareTo(BigDecimal.valueOf(70000))<0) return SalaryRange.from40to70;
 		else return SalaryRange.more70;
 	}
-
+		
 }
