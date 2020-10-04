@@ -46,13 +46,11 @@ public class Employee implements Person {
 			System.out.println("Error found when parsing file - missing field.\nSystem will now close");
 			System.exit(0);
 		}
-		for(String s : splits) {
-			if(s.isEmpty()||s==null) {
+		for(int a=0; a<splits.length; a++) {
+			if(splits[a].isEmpty()||splits[a]==null) {
 				System.out.println("Error found when parsing file - missing field.\nSystem will now close");
 				System.exit(0);
 			}
-		}
-		for(int a=0; a<splits.length; a++) {
 			if(splits[a].charAt(0)=='"' || splits[a].charAt(0)=='.') {
 				splits[a] = splits[a].substring(1);
 			}
