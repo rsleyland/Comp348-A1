@@ -24,7 +24,7 @@ public class Driver1 {
 		System.out.println("\nProcessing "+inputFilePath+"...\n");
 		userInput.close();
 		
-		//try with resources, opens file, saves each line in file as line in stream, stream 'input' can then be parsed and each employee from csv added to arraylist employees
+		//try with resources, opens file, saves each line in file as line in stream, stream 'input' can then be parsed and each employee from csv added to arraylist people
 		//try with resources will auto-close any resources declared in try block
 		try (Stream<String> input = Files.lines(Paths.get(inputFilePath))) {
 			input.forEach(i -> people.add((Employee.parse(i))));
@@ -38,15 +38,14 @@ public class Driver1 {
 		people.stream().sorted((o1,o2) -> { return o1.getName().compareTo(o2.getName());
 		}).forEach(System.out::println);
 		
-		
 		//sort and print employees by ID #
 		System.out.println("\nEmployees ordered by ID #:\n--------------------------");
 		people.stream().sorted((o1, o2) -> o1.getId().compareToIgnoreCase(o2.getId())).forEach(System.out::println);
 		
-		
 		//Sort into salary ranges, display information about each range (count and average salary of employees in each salary range)
 		System.out.println("\nSummary Information of Salary ranges\n------------------------------------");
-		//use of Map to group together employees into different range groups, uses String salaryRange assigned during construction of employee object
+		//use of Map to group together employees into different range groups, uses Enum salaryRange for keys and salary stats in key value
+		//Person objects are casted to Employees during map() in stream()
 		Map<Employee.SalaryRange, DoubleSummaryStatistics> empsBySalary = people.stream().map(obj -> (Employee) obj).collect(Collectors.groupingBy(Employee::sortRange, Collectors.summarizingDouble(e -> e.getBigDecSalary().doubleValue())));
 		if(empsBySalary.get(Employee.SalaryRange.less25)!=null)
 			System.out.println("\t< $25,000 : Count = "+empsBySalary.get(Employee.SalaryRange.less25).getCount()+" & Average = $" + (int)empsBySalary.get(Employee.SalaryRange.less25).getAverage());
