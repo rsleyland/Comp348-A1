@@ -34,21 +34,18 @@ public class Driver1 {
 		}
 		
 		//sort and print employees by First & Last names
-		System.out.println("Employees ordered by First and Last Names:");
-		System.out.println("------------------------------------------");
+		System.out.println("Employees ordered by First and Last Names:\n------------------------------------------");
 		people.stream().sorted((o1,o2) -> { return o1.getName().compareTo(o2.getName());
 		}).forEach(System.out::println);
 		
 		
 		//sort and print employees by ID #
-		System.out.println("\nEmployees ordered by ID #:");
-		System.out.println("--------------------------");
+		System.out.println("\nEmployees ordered by ID #:\n--------------------------");
 		people.stream().sorted((o1, o2) -> o1.getId().compareToIgnoreCase(o2.getId())).forEach(System.out::println);
 		
 		
 		//Sort into salary ranges, display information about each range (count and average salary of employees in each salary range)
-		System.out.println("\nSummary Information of Salary ranges");
-		System.out.println("------------------------------------");
+		System.out.println("\nSummary Information of Salary ranges\n------------------------------------");
 		//use of Map to group together employees into different range groups, uses String salaryRange assigned during construction of employee object
 		Map<Employee.SalaryRange, DoubleSummaryStatistics> empsBySalary = people.stream().map(obj -> (Employee) obj).collect(Collectors.groupingBy(Employee::sortRange, Collectors.summarizingDouble(e -> e.getBigDecSalary().doubleValue())));
 		if(empsBySalary.get(Employee.SalaryRange.less25)!=null)
@@ -61,8 +58,7 @@ public class Driver1 {
 			System.out.println("$70,000 <\t  : Count = "+empsBySalary.get(Employee.SalaryRange.more70).getCount()+" & Average = $" + (int)empsBySalary.get(Employee.SalaryRange.more70).getAverage());
 				
 		//Calculate and display total employee count & average of all employees salaries
-		System.out.println("\nTotal employee count & Total Average salary");
-		System.out.println("------------------------------------");
+		System.out.println("\nTotal employee count & Total Average salary\n------------------------------------");
 		DoubleSummaryStatistics dss1 = people.stream().map(obj -> (Employee) obj).collect(Collectors.summarizingDouble(e -> e.getBigDecSalary().doubleValue()));
 		System.out.println("Count = "+ dss1.getCount()+"\nAverage = $" + (int)dss1.getAverage());
 		
