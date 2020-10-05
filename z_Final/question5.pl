@@ -39,4 +39,7 @@ list_all_classes(L1) :- findall(X,student(_,X),L), list_to_set(L,L1).
 sort_list(L1) :- list_all_classes(L), sort(L,L1).
 
 %unify expression with above result
+% A = comp349
+% B = comp352
+% C = [comp361, encs282, engr371, engr391, engr392, mast218, phys284, soen287, soen341]
 unify_list([A,B|C]):- sort_list(X), X = [A,B|C].
